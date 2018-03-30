@@ -99,7 +99,7 @@ function QemuRunner(workspace_root::String; cwd = nothing,
 
     qemu_cmd = ```
         $(qemu_path()) -kernel $(kernel_path())
-        -M accel=$(platform_accelerator()) -nographic
+        -M -nographic
         -drive if=virtio,file=$(rootfs_path_squashfs()),format=raw
         -nodefaults -rtc base=utc,driftfix=slew
         -device virtio-serial -chardev stdio,id=charconsole0
